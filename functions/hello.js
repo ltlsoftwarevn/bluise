@@ -6,7 +6,8 @@ exports.handler = async function (event, context) {
   //   body: JSON.stringify({ message: "Hello World" }),
   // };
 
-  const { map, pace } = JSON.parse(event.body);
+  let { map, pace } = JSON.parse(event.body);
+  map = JSON.parse(map);
 
   const nextMove = getNextMove(map, pace);
   
