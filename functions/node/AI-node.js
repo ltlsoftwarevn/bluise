@@ -13,9 +13,10 @@ var AI = AI || {};
 
 AI.historyTable = {}; //历史表
 
-AI.getNextMove = function (map, mans, pace) {
+AI.getNextMove = function (map, mans, pace, my=-1) {
   play.map = map;
   play.mans = mans;
+  play.my = my;
 
   return AI.init(pace);
 };
