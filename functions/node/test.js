@@ -1,7 +1,7 @@
 const com = require("./common-node");
 const AI = require("./AI-node");
 
-function getNextMove(map, pace) {
+function getNextMove(map, pace, my=-1) {
   com.init();
   com.window.onload();
 
@@ -11,7 +11,7 @@ function getNextMove(map, pace) {
   com.play.createMap(map);
   com.play.createMans();
 
-  const nextMove = AI.getNextMove(com.play.map, com.play.mans, pace);
+  const nextMove = AI.getNextMove(com.play.map, com.play.mans, pace, my);
   // console.log(nextMove);
 
   return nextMove;
