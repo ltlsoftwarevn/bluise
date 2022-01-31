@@ -13,10 +13,11 @@ var AI = AI || {};
 
 AI.historyTable = {}; //历史表
 
-AI.getNextMove = function (map, mans, pace, my=-1) {
+AI.getNextMove = function (map, mans, pace, my=-1,depth=4) {
   play.map = map;
   play.mans = mans;
   play.my = my;
+  play.depth = depth;
 
   return AI.init(pace);
 };
@@ -53,6 +54,7 @@ AI.init = function (pace) {
   var initTime = new Date().getTime();
   AI.treeDepth = play.depth;
   //AI.treeDepth=4;
+    console.log('treeDepth = ',AI.treeDepth);
 
   AI.number = 0;
   AI.setHistoryTable.lenght = 0;
@@ -66,6 +68,7 @@ AI.init = function (pace) {
   );
   //var val = AI.iterativeSearch(com.arr2Clone(play.map),play.my)
   if (!val || val.value == -8888) {
+    console.log('treeDepth = 2');
     AI.treeDepth = 2;
     val = AI.getAlphaBeta(
       -99999,
